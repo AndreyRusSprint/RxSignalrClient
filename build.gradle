@@ -1,0 +1,42 @@
+buildscript {
+    ext.kotlin_version = '1.3.61'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+group GROUP
+version VERSION_NAME
+
+repositories {
+    jcenter()
+}
+
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.16'
+
+    // RxKotlin
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+    // SignalR
+    implementation 'com.microsoft.signalr:signalr:1.0.0'
+
+    // Test dependencies
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
